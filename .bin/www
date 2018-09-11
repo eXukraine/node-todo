@@ -1,0 +1,21 @@
+const {createServer} = require('http');
+const app = require('../server/app');
+
+const PORT = process.env.PORT ? process.env.PORT : 3001;
+const HOST = process.env.HOST ? process.env.HOST : 'localhost';
+
+const server = createServer(app);
+
+process.on('uncaughtException', () =>{
+    console.log('Somthing going wrong!!!');
+    console.log(err.message);
+    process.exit(1);
+});
+
+process.on('exit', () =>{
+    console.log('Bye!!');
+});
+
+server.listen(PORT, HOST, () => {
+    console.log(`Server listening on port ${PORT}:${HOST}`);
+});
