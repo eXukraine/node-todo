@@ -1,9 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const index = require('../server/routes/index');
 
 const app = express();
 app.use(bodyParser.json());
+
+// DB config
+
+const db = require('../server/config/keys').mongoURI;
+
+// Connect to MongoDb
+
+mongoose.connect(db)
+  .then(() => console.log('MongoDB conected...'))
+  .catch(err => console.log(err));
 
 app.use('/', index);
 
