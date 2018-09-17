@@ -30,5 +30,12 @@ route.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ succes: false }));
 });
 
+// Get by Exercise_name
+
+route.get('/find/:exName', (req, res) => {
+  Item.find({ exercise_name: req.params.exName })
+    .then(item => res.json(item));
+});
+
 
 module.exports = route;
