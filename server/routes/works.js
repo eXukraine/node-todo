@@ -38,4 +38,12 @@ route.get('/find/:exName', (req, res) => {
 });
 
 
+// Get by Month
+
+route.get('/find/:date', (req, res) => {
+  Item.find({ date: { $in: req.params.date } })
+    .then(items => res.json(items))
+    .catch(err => res.json(err));
+});
+
 module.exports = route;
