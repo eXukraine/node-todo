@@ -26,9 +26,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.form {
+  background-color: yellow;
+  width: 310px;
+  margin: 0 auto;
+  border-radius: 25px;
+}
 
 form {
   width: 300px;
   height: auto;
   margin: 0 auto;
+  margin-top: 30px;
 }
