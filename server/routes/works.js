@@ -1,4 +1,3 @@
-const express = require('express');
 const { Router } = require('express');
 const Item = require('../models/Item');
 
@@ -6,7 +5,7 @@ const route = Router();
 
 // Get all Items
 
-route.get('/', (req, res) => {
+route.get('/all', (req, res) => {
   Item.find()
     .then(items => res.json(items));
 });
