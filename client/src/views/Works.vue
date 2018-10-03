@@ -8,9 +8,9 @@
                <th>Qty</th>
            </tr>
            <tr v-for="work_alias in works">
-               <th>{{work_alias.exercise_name}}</th>
-               <th>{{work_alias.weight}}</th>
-               <th>{{work_alias.qty}}</th>
+               <th>{{work_alias.name}}</th>
+               <th>{{work_alias.surname}}</th>
+               <!-- <th>{{work_alias.qty}}</th> -->
            </tr>
        </table>
     </div>
@@ -21,21 +21,23 @@
 /* eslint-disable */
 
 import axios from 'axios';
-import helloWorld from '@/components/HelloWorld.vue';
 export default {
     name: "Works",
     data(){
         return{
-            works:[]
+            works:[
+                {name: 'Alexei',
+                surname: 'Yamlovoi'}
+            ]
         }
     },
-    mounted(){
-        axios.get('http://localhost:3001/works/all')
-            .then(res => {
-
-                this.works = res.data
-            })
-    }
+    // mounted(){
+    //     axios.get('http://localhost:3001/works/all')
+    //         .then(res => {
+    //             this.works = res.data
+    //         })
+    //         .catch(err => res.send(err))
+    // }
   }
 
 </script>
