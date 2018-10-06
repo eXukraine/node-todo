@@ -5,7 +5,7 @@ const route = Router();
 
 // Get all Items
 
-route.get('/all', (req, res) => {
+route.get('/', (req, res) => {
   Item.find()
     .then(items => res.json(items));
 });

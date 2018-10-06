@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const index = require('../server/routes/index');
 const works = require('../server/routes/works');
 
+mongoose.Promise = require('bluebird');
+
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,32 +17,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// // Add headers
-// app.use((req, res, next) => {
-//   // Website you wish to allow to connect
-//   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
-
-//   // Request methods you wish to allow
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-//   // Request headers you wish to allow
-//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-//   // Set to true if you need the website to include cookies in the requests sent
-//   // to the API (e.g. in case you use sessions)
-//   res.setHeader('Access-Control-Allow-Credentials', true);
-
-//   // Pass to next layer of middleware
-//   next();
-// });
 
 // DB config
-
-const db = require('../server/config/keys').mongoURI;
-
+// const db = require('../server/config/keys').mongoURI;
+// mongoose.connect('mongodb://localhost:27017/todo');
+// const db = mongoose.connection;
 // Connect to MongoDb
 
-mongoose.connect(db, { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/todo', { useNewUrlParser: true })
   .then(() => console.log('MongoDB conected...'))
   .catch(err => console.log(err));
 

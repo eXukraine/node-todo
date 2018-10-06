@@ -28,14 +28,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-image: url('../public/bg.jpg');
+  /* background-image: url('../public/bg.jpg'); */
   background-repeat: no-repeat;
   background-size: cover;
 
 }
-http {
-   background-image: url('../public/bg.jpg');
 
-}
 
 </style>
