@@ -1,3 +1,2 @@
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/mongoose_basics');
+const DB = 'mongodb://localhost:27017/todo';
+module.exports = DB;

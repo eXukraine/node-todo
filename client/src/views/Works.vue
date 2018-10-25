@@ -7,13 +7,12 @@
                <th>Wheigth</th>
                <th>Qty</th>
            </tr>
-           <tr v-for="work_alias in works" v-bind:key='work_alias.exercise_name'>
-               <th>{{work_alias.exercise_name}}</th>
-               <th>{{work_alias.weight}}</th>
-               <th>{{work_alias.qty}}</th>
+           <tr v-for="work in works" :key='work.exercise_name'>
+               <th>{{work.exercise_name}}</th>
+               <th>{{work.weight}}</th>
+               <th>{{work.qty}}</th>
            </tr>
        </table>
-       <button @click="getData">Get data</button>
     </div>
     
 </template>
@@ -22,28 +21,31 @@
 /* eslint-disable */
 
 import axios from 'axios';
+import { mapState } from 'vuex';
+
 export default {
     name: "Works",
+        mounted () {
+            this.$store.dispatch('loadWorks')
+         },
+        computed: mapState([
+            'works'
+        ]),
+
+
+
+
+
     data(){
         return{
-            works:null
+           
         }
+        
 
     },
  
      methods:{ 
-        getData:function(){
-         axios.get('http://localhost:3001/works')
-            .then(res => {
-                
-                    this.works = res.data
-                 
-                
-                
-                
-            })
-             .catch(err => console.log(err))
-         } 
+        
     } 
      
   }

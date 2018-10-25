@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const index = require('../server/routes/index');
 const works = require('../server/routes/works');
+const DB = require('../server/config/keys');
 
 mongoose.Promise = require('bluebird');
 
@@ -19,12 +20,12 @@ app.use((req, res, next) => {
 
 
 // DB config
-// const db = require('../server/config/keys').mongoURI;
+// const config = require('../server/config/keys').mongoURI;
 // mongoose.connect('mongodb://localhost:27017/todo');
 // const db = mongoose.connection;
 // Connect to MongoDb
 
-mongoose.connect('mongodb://localhost:27017/todo', { useNewUrlParser: true })
+mongoose.connect(DB, { useNewUrlParser: true })
   .then(() => console.log('MongoDB conected...'))
   .catch(err => console.log(err));
 
