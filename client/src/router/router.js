@@ -26,6 +26,21 @@ export default new Router({
       path: '/works',
       name: 'works',
       component: () => import(/* webpackChunkName: "works" */ '../views/Works.vue')
+    },
+    {
+      path: '/monday',
+      name: 'monday',
+      component: () => import('../views/days/Monday.vue')
+    },
+    {
+      path: '/wensday',
+      name: 'wensday',
+      component: () => import('../views/days/Wensday.vue')
+    },
+    {
+      path: '/friday',
+      name: 'friday',
+      component: () => import('../views/days/Friday.vue')
     }
   ]
 })

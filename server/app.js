@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const index = require('../server/routes/index');
 const works = require('../server/routes/works');
+const exercise = require('../server/routes/exercise');
 const DB = require('../server/config/keys');
 
 mongoose.Promise = require('bluebird');
@@ -19,6 +20,8 @@ app.use((req, res, next) => {
 });
 
 
+
+
 // DB config
 // const config = require('../server/config/keys').mongoURI;
 // mongoose.connect('mongodb://localhost:27017/todo');
@@ -31,6 +34,7 @@ mongoose.connect(DB, { useNewUrlParser: true })
 
 app.use('/', index);
 app.use('/works', works);
+app.use('/exercise', exercise);
 
 app.use((req, res, next) => {
   res.status(404);
@@ -42,8 +46,8 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  app.status(500);
-  app.json({
+  res.status(500);
+  res.json({
     status: 500,
     message: err.message,
   });
