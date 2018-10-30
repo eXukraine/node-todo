@@ -4,7 +4,7 @@ module.exports = {
     script: './.bin/www',
     env: {
       NODE_ENV: 'development',
-      PORT: 3001,
+      PORT: 3000,
       HOST: 'localhost',
     },
     env_production: {

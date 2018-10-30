@@ -4,6 +4,7 @@
         <h4>Leg`s day</h4>
         <input @click="inpClick" type="button" value="Create" id="btn">
         <input @click="visible=!visible" type="button" value="Add">
+
         <div v-if="visible">
             <Select/>
         </div>

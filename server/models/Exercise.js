@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 const exeSchema = new Schema({
-  exercise: {
+  value: {
+    type: String,
+  },
+  text: {
     type: String,
   },
 });

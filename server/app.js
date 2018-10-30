@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const index = require('../server/routes/index');
 const works = require('../server/routes/works');
+const programs = require('../server/routes/programs');
 const exercise = require('../server/routes/exercise');
 const DB = require('../server/config/keys');
 
@@ -35,6 +36,7 @@ mongoose.connect(DB, { useNewUrlParser: true })
 app.use('/', index);
 app.use('/works', works);
 app.use('/exercise', exercise);
+app.use('/programs', programs);
 
 app.use((req, res, next) => {
   res.status(404);

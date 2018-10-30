@@ -17,9 +17,7 @@ route.post('/', (req, res) => {
   newExercise.save().then(exercise => res.json(exercise));
 });
 
-route.delete('/', (req, res) => {
-  Exercise.remove({});
-});
+
 
 
 module.exports = route;
